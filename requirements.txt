@@ -3,4 +3,4 @@ yfinance
 numpy
 plotly.express
 datetime
-babel.number==2.14.0
+babel.number>=2.13.0
