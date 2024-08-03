@@ -1,6 +1,7 @@
 import time
 import streamlit as st
 import yfinance as yf
+yf.utils._PROGRESS_BAR = None
 import numpy as np
 import plotly.express as px
 from datetime import datetime
