@@ -1,7 +1,6 @@
 import time
 import streamlit as st
 import yfinance as yf
-yf.utils._PROGRESS_BAR = None
 import numpy as np
 import plotly.express as px
 from datetime import datetime
@@ -13,8 +12,6 @@ st.warning(
 st.title("Tools Resiko & Return Harga Saham")
 
 try:
-    with st.spinner("Mohon tunggu sebentar..."):
-        time.sleep(1)
         ticker1 = st.text_input(
             "Ticker saham (pakai '.JK' di akhir ticker untuk saham Indonesia)",
             "ASSA.JK",
@@ -71,11 +68,6 @@ try:
             st.write(
                 "Return harga saham dalam 1 tahun terakhir naik dan turun sebesar : :blue[%.2f]%% dari rata - rata return harga sahamnya"
                 % (stck_pct1.std() * 100))
-
-    #st.success("Data berhasil diubah", icon="✅")
-
-    with st.spinner("Mohon tunggu sebentar..."):
-        time.sleep(1)
 
         st.subheader("Resiko vs Keuntungan Harga Saham")
 
@@ -228,12 +220,7 @@ try:
                             (((max_price - start_price) * 16000) * 0.4),
                            "(kurs: Rp.16,000)")
 
-    #st.success("Data berhasil diubah", icon="✅")
-
     if st.checkbox("Bandingkan dengan saham lain"):
-
-        with st.spinner("Mohon tunggu sebentar..."):
-            time.sleep(1)
 
             if data1.empty:
                 st.warning(
@@ -284,8 +271,6 @@ try:
                         st.write(
                             "Dari grafik diatas, Anda dapat melihat perbandingan resiko dengan return harga saham antara 2 saham yang berbeda. Saham yang lebih beresiko adalah saham ",
                             ticker2)
-
-        #st.success("Data berhasil diubah", icon="✅")
 
     st.warning(
         " DISCLAIMER : Tools AI di situs ini tidak dimaksudkan sebagai nasihat keuangan, investasi, atau perdagangan. Investasi saham melibatkan risiko, termasuk kehilangan modal. Penggunaan teknologi Artificial Intelligence dalam investasi saham juga memiliki risikonya tersendiri dan tidak ada jaminan bahwa teknologi ini akan membantu Anda menghasilkan keuntungan yang pasti. Anda bertanggung jawab penuh atas keputusan investasi Anda sendiri. Kami tidak bertanggung jawab atas kerugian atau kerusakan yang mungkin timbul dari penggunaan tools AI yang disediakan di situs ini. Anda harus melakukan analisa Anda sendiri terlebih dahulu dan mengevaluasi informasi sebelum Anda mengambil tindakan apapun berdasarkan tools AI yang dibagikan di situs ini.",
