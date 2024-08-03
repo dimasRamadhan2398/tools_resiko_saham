@@ -5,7 +5,7 @@ import yfinance as yf
 import numpy as np
 import plotly.express as px
 from datetime import datetime
-from babel.numbers import format_currency
+#from babel.numbers import format_currency
 
 st.warning(
     "DISCLAIMER : Tools AI di situs ini tidak dimaksudkan sebagai nasihat keuangan, investasi, atau perdagangan. Investasi saham melibatkan risiko, termasuk kehilangan modal. Penggunaan teknologi Artificial Intelligence dalam investasi saham juga memiliki risikonya tersendiri dan tidak ada jaminan bahwa teknologi ini akan membantu Anda menghasilkan keuntungan yang pasti. Anda bertanggung jawab penuh atas keputusan investasi Anda sendiri. Kami tidak bertanggung jawab atas kerugian atau kerusakan yang mungkin timbul dari penggunaan tools AI yang disediakan di situs ini. Anda harus melakukan analisa Anda sendiri terlebih dahulu dan mengevaluasi informasi sebelum Anda mengambil tindakan apapun berdasarkan tools AI yang dibagikan di situs ini.",
@@ -125,70 +125,50 @@ try:
                         "99% kemungkinan :red[resiko kerugian] yang bisa Anda alami dalam",
                         days, "hari kedepan jika Anda memilih saham", ticker1,
                         " untuk :blue[1 lot] nya adalah sebesar -",
-                        format_currency((((start_price - q) * 100) * 0.2),
-                                        'IDR',
-                                        locale='id_ID'),
+                        (((start_price - q) * 100) * 0.2),
                         ", 1% kemungkinan :red[resiko kerugian] bisa lebih dari itu"
                     )
                     st.write(
                         "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
                         days, "hari kedepan jika Anda memilih saham", ticker1,
                         "untuk :blue[1 lot] nya adalah sebesar ",
-                        format_currency(
-                            (((max_price - start_price) * 100) * 0.1),
-                            'IDR',
-                            locale='id_ID'))
+                            (((max_price - start_price) * 100) * 0.1))
                 elif 91 < days <= 180:
                     st.write(
                         "99% kemungkinan :red[resiko kerugian] yang bisa Anda alami dalam",
                         days, "hari kedepan jika Anda memilih saham", ticker1,
                         " untuk :blue[1 lot] nya adalah sebesar -",
-                        format_currency((((start_price - q) * 100) * 0.4),
-                                        'IDR',
-                                        locale='id_ID'),
+                        (((start_price - q) * 100) * 0.4),
                         ", 1% kemungkinan resiko kerugian bisa lebih dari itu")
                     st.write(
                         "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
                         days, "hari kedepan jika Anda memilih saham", ticker1,
                         "untuk :blue[1 lot] nya adalah sebesar ",
-                        format_currency(
-                            (((max_price - start_price) * 100) * 0.2),
-                            'IDR',
-                            locale='id_ID'))
+                            (((max_price - start_price) * 100) * 0.2))
                 elif 181 < days <= 270:
                     st.write(
                         "99% kemungkinan :red[resiko kerugian] yang bisa Anda alami dalam",
                         days, "hari kedepan jika Anda memilih saham", ticker1,
                         " untuk :blue[1 lot] nya adalah sebesar -",
-                        format_currency((((start_price - q) * 100) * 0.7),
-                                        'IDR',
-                                        locale='id_ID'),
+                        (((start_price - q) * 100) * 0.7),
                         ", 1% kemungkinan resiko kerugian bisa lebih dari itu")
                     st.write(
                         "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
                         days, "hari kedepan jika Anda memilih saham", ticker1,
                         "untuk :blue[1 lot] nya adalah sebesar ",
-                        format_currency(
-                            (((max_price - start_price) * 100) * 0.3),
-                            'IDR',
-                            locale='id_ID'))
+                            (((max_price - start_price) * 100) * 0.3))
                 elif 271 < days <= 365:
                     st.write(
                         "99% kemungkinan :red[resiko kerugian] yang bisa Anda alami dalam",
                         days, "hari kedepan jika Anda memilih saham", ticker1,
                         " untuk :blue[1 lot] nya adalah sebesar -",
-                        format_currency(((start_price - q) * 100),
-                                        'IDR',
-                                        locale='id_ID'),
+                        ((start_price - q) * 100),
                         ", 1% kemungkinan resiko kerugian bisa lebih dari itu")
                     st.write(
                         "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
                         days, "hari kedepan jika Anda memilih saham", ticker1,
                         "untuk :blue[1 lot] nya adalah sebesar ",
-                        format_currency(
-                            (((max_price - start_price) * 100) * 0.4),
-                            'IDR',
-                            locale='id_ID'))
+                            (((max_price - start_price) * 100) * 0.4))
 
             else:
 
@@ -197,73 +177,57 @@ try:
                         "99% kemungkinan :red[resiko kerugian] yang bisa Anda alami dalam",
                         days, "hari kedepan jika Anda memilih saham", ticker1,
                         "untuk :blue[1 lembar] nya adalah sebesar -",
-                        format_currency((((start_price - q) * 16000) * 0.2),
-                                        'IDR',
-                                        locale='id_ID'),
+                        (((start_price - q) * 16000) * 0.2),
                         ", 1% kemungkinan resiko kerugian bisa lebih dari itu (kurs: Rp.16,000)"
                     )
                     st.write(
                         "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
                         days, "hari kedepan jika Anda memilih saham", ticker1,
                         "untuk :blue[1 lembar] nya adalah sebesar ",
-                        format_currency(
                             (((max_price - start_price) * 16000) * 0.1),
-                            'IDR',
-                            locale='id_ID'), "(kurs: Rp.16,000)")
+                             "(kurs: Rp.16,000)")
                 elif 91 < days <= 180:
                     st.write(
                         "99% kemungkinan :red[resiko kerugian] yang bisa Anda alami dalam",
                         days, "hari kedepan jika Anda memilih saham", ticker1,
                         "untuk :blue[1 lembar] nya adalah sebesar -",
-                        format_currency((((start_price - q) * 16000) * 0.4),
-                                        'IDR',
-                                        locale='id_ID'),
+                        (((start_price - q) * 16000) * 0.4),
                         ", 1% kemungkinan resiko kerugian bisa lebih dari itu (kurs: Rp.16,000)"
                     )
                     st.write(
                         "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
                         days, "hari kedepan jika Anda memilih saham", ticker1,
                         "untuk :blue[1 lembar] nya adalah sebesar ",
-                        format_currency(
                             (((max_price - start_price) * 16000) * 0.2),
-                            'IDR',
-                            locale='id_ID'), "(kurs: Rp.16,000)")
+                           "(kurs: Rp.16,000)")
                 elif 181 < days <= 270:
                     st.write(
                         "99% kemungkinan :red[resiko kerugian] yang bisa Anda alami dalam",
                         days, "hari kedepan jika Anda memilih saham", ticker1,
                         "untuk :blue[1 lembar] nya adalah sebesar -",
-                        format_currency((((start_price - q) * 16000) * 0.7),
-                                        'IDR',
-                                        locale='id_ID'),
+                        (((start_price - q) * 16000) * 0.7),
                         ", 1% kemungkinan resiko kerugian bisa lebih dari itu (kurs: Rp.16,000)"
                     )
                     st.write(
                         "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
                         days, "hari kedepan jika Anda memilih saham", ticker1,
                         "untuk :blue[1 lembar] nya adalah sebesar ",
-                        format_currency(
                             (((max_price - start_price) * 16000) * 0.3),
-                            'IDR',
-                            locale='id_ID'), "(kurs: Rp.16,000)")
+                            "(kurs: Rp.16,000)")
                 elif 271 < days <= 365:
                     st.write(
                         "99% kemungkinan :red[resiko kerugian] yang bisa Anda alami dalam",
                         days, "hari kedepan jika Anda memilih saham", ticker1,
                         "untuk :blue[1 lembar] nya adalah sebesar -",
-                        format_currency(((start_price - q) * 16000),
-                                        'IDR',
-                                        locale='id_ID'),
+                        ((start_price - q) * 16000),
                         ", 1% kemungkinan resiko kerugian bisa lebih dari itu (kurs: Rp.16,000)"
                     )
                     st.write(
                         "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
                         days, "hari kedepan jika Anda memilih saham", ticker1,
                         "untuk :blue[1 lembar] nya adalah sebesar ",
-                        format_currency(
                             (((max_price - start_price) * 16000) * 0.4),
-                            'IDR',
-                            locale='id_ID'), "(kurs: Rp.16,000)")
+                           "(kurs: Rp.16,000)")
 
     #st.success("Data berhasil diubah", icon="✅")
 
