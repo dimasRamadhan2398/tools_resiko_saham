@@ -237,7 +237,7 @@ try:
                     "Data tidak ditemukan. Gunakan '.JK' di akhir ticker saham untuk saham Indonesia",
                     icon="⚠️")
             else:
-                ticker = yf.download(f"{ticker1} {ticker2}")
+                ticker = " ".join([ticker1, ticker2])
                 data_campur = yf.Ticker(ticker)
                 data = data_campur.history(period="max")
                 stck_pct = data['Close'].pct_change()
