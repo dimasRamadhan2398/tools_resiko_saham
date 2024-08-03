@@ -1,11 +1,9 @@
 import time
-import locale
 import streamlit as st
 import yfinance as yf
 import numpy as np
 import plotly.express as px
 from datetime import datetime
-#from babel.numbers import format_currency
 
 st.warning(
     "DISCLAIMER : Tools AI di situs ini tidak dimaksudkan sebagai nasihat keuangan, investasi, atau perdagangan. Investasi saham melibatkan risiko, termasuk kehilangan modal. Penggunaan teknologi Artificial Intelligence dalam investasi saham juga memiliki risikonya tersendiri dan tidak ada jaminan bahwa teknologi ini akan membantu Anda menghasilkan keuntungan yang pasti. Anda bertanggung jawab penuh atas keputusan investasi Anda sendiri. Kami tidak bertanggung jawab atas kerugian atau kerusakan yang mungkin timbul dari penggunaan tools AI yang disediakan di situs ini. Anda harus melakukan analisa Anda sendiri terlebih dahulu dan mengevaluasi informasi sebelum Anda mengambil tindakan apapun berdasarkan tools AI yang dibagikan di situs ini.",
