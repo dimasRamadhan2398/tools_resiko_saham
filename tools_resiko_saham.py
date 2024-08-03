@@ -1,7 +1,6 @@
 import time
 import streamlit as st
 import yfinance as yf
-yf.utils._PROGRESS_BAR = None
 import numpy as np
 import plotly.express as px
 from datetime import datetime
@@ -18,10 +17,8 @@ try:
         "ASSA.JK",
         placeholder='Masukkan ticker saham disini, misalnya ASSA.JK')
 
-    end = datetime.now()
-    start = datetime(end.year - 1, end.month, end.day)
-
-    data1 = yf.download(ticker1, period="1y")
+    data0 = yf.Ticker(ticker1)
+    data1 = data0.history(period="max")
     stck_pct1 = data1['Adj Close'].pct_change()
     rets1 = stck_pct1.dropna()
 
