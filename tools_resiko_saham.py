@@ -94,7 +94,7 @@ try:
 
             return price
 
-        start_price = data1['Adj Close'][-1]
+        start_price = data1['Close'][-1]
         runs = 1000
         simulations = np.zeros(runs)
         np.set_printoptions(threshold=5)
@@ -228,8 +228,9 @@ try:
                 "TLKM.JK",
                 placeholder='Masukkan ticker saham disini, misalnya TLKM.JK')
             ticker = [ticker1, ticker2]
-            data2 = yf.download(ticker2, start, end)
-            stck_pct2 = data2['Adj Close'].pct_change()
+            data2_0 = yf.Ticker(ticker2)
+            data2 = data2_0.history(period="max")
+            stck_pct2 = data2['Close'].pct_change()
             rets2 = stck_pct2.dropna()
 
             if rets2.empty:
@@ -237,8 +238,9 @@ try:
                     "Data tidak ditemukan. Gunakan '.JK' di akhir ticker saham untuk saham Indonesia",
                     icon="⚠️")
             else:
-                data = yf.download(ticker, start, end)
-                stck_pct = data['Adj Close'].pct_change()
+                data_campur = yf.Ticker(ticker)
+                data = data_campur.history(period="max")
+                stck_pct = data['Close'].pct_change()
                 rets = stck_pct.dropna()
                 fig = px.scatter(
                     rets,
