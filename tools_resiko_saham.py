@@ -21,7 +21,7 @@ try:
     end = datetime.now()
     start = datetime(end.year - 1, end.month, end.day)
 
-    data1 = yf.download(ticker1, start, end)
+    data1 = yf.download(ticker1, period="1y")
     stck_pct1 = data1['Adj Close'].pct_change()
     rets1 = stck_pct1.dropna()
 
