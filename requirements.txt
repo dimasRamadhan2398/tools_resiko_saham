@@ -1,4 +1,3 @@
-locale
 streamlit
 yfinance
 numpy
