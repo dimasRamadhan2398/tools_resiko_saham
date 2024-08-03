@@ -227,9 +227,6 @@ try:
                 "Ticker Saham (pakai '.JK' di akhir ticker untuk saham Indonesia)",
                 "TLKM.JK",
                 placeholder='Masukkan ticker saham disini, misalnya TLKM.JK')
-            ticker = []
-            ticker.append(ticker1)
-            ticker.append(ticker2)
             data2_0 = yf.Ticker(ticker2)
             data2 = data2_0.history(period="max")
             stck_pct2 = data2['Close'].pct_change()
@@ -240,6 +237,7 @@ try:
                     "Data tidak ditemukan. Gunakan '.JK' di akhir ticker saham untuk saham Indonesia",
                     icon="⚠️")
             else:
+                ticker = yf.download(f"{ticker1} {ticker2}")
                 data_campur = yf.Ticker(ticker)
                 data = data_campur.history(period="max")
                 stck_pct = data['Close'].pct_change()
