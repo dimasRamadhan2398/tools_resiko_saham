@@ -227,9 +227,9 @@ try:
                 "Ticker Saham (pakai '.JK' di akhir ticker untuk saham Indonesia)",
                 "TLKM.JK",
                 placeholder='Masukkan ticker saham disini, misalnya TLKM.JK')
-            tickers = []
-            tickers.append(ticker1)
-            tickers.append(ticker2)
+            ticker = []
+            ticker.append(ticker1)
+            ticker.append(ticker2)
             data2_0 = yf.Ticker(ticker2)
             data2 = data2_0.history(period="max")
             stck_pct2 = data2['Close'].pct_change()
