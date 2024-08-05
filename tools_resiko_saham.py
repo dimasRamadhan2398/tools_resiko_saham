@@ -215,7 +215,6 @@ try:
                     "(kurs: Rp.16,000)")
 
     if st.checkbox("Bandingkan dengan saham lain"):
-
         if data1.empty:
             st.warning(
                 "Data ticker saham pertama tidak ditemukan. Tolong masukkan ticker saham pertama terlebih dahulu",
@@ -234,7 +233,12 @@ try:
                     "Data tidak ditemukan. Gunakan '.JK' di akhir ticker saham untuk saham Indonesia",
                     icon="⚠️")
             else:
-                rets = [rets1, rets2]
+                end = datetime.now()
+                start = datetime(end.year - 1, end.month, end.day)
+                ticker = [ticker1, ticker2]
+                data = yf.download(ticker, start, end)
+                stck_pct = data['Adj Close'].pct_change()
+                rets = stck_pct.dropna()
                 fig = px.scatter(
                     rets,
                     x=rets.mean(),
