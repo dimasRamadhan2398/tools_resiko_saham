@@ -107,7 +107,11 @@ try:
         max_price = simulations.max()
 
         if ticker1.endswith('.JK'):
-            if 0 < days <= 90:
+            if days == 0:
+                st.warning("Tolong pilih angka lebih dari 0", icon="⚠️")
+            elif days == 1:
+                st.warning("Tolong pilih angka lebih dari 1 hari karena tools ini belum bisa memprediksi resiko kerugian & kenaikan harga dalam 1 hari", icon="⚠️")
+            elif 1 < days <= 90:
                 st.write(
                     "99% kemungkinan :red[resiko kerugian] yang bisa Anda alami dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
@@ -116,7 +120,7 @@ try:
                     ", 1% kemungkinan :red[resiko kerugian] bisa lebih dari itu"
                 )
                 st.write(
-                    "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
+                    "Kemungkinan :green[kenaikan harga] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
                     "untuk :blue[1 lot] nya adalah sebesar :green[Rp.%.0f]"
                     % (((max_price - start_price) * 100) * 0.1))
@@ -128,7 +132,7 @@ try:
                     % (((start_price - q) * 100) * 0.4),
                     ", 1% kemungkinan resiko kerugian bisa lebih dari itu")
                 st.write(
-                    "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
+                    "Kemungkinan :green[kenaikan harga] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
                     "untuk :blue[1 lot] nya adalah sebesar :green[Rp.%.0f]"
                     % (((max_price - start_price) * 100) * 0.2))
@@ -140,7 +144,7 @@ try:
                     % (((start_price - q) * 100) * 0.7),
                     ", 1% kemungkinan resiko kerugian bisa lebih dari itu")
                 st.write(
-                    "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
+                    "Kemungkinan :green[kenaikan harga] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
                     "untuk :blue[1 lot] nya adalah sebesar :green[Rp.%.0f]"
                     % (((max_price - start_price) * 100) * 0.3))
@@ -152,7 +156,7 @@ try:
                     % ((start_price - q) * 100),
                     ", 1% kemungkinan resiko kerugian bisa lebih dari itu")
                 st.write(
-                    "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
+                    "Kemungkinan :green[kenaikan harga] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
                     "untuk :blue[1 lot] nya adalah sebesar :green[Rp.%.0f]"
                     % (((max_price - start_price) * 100) * 0.4))
@@ -168,7 +172,7 @@ try:
                     ", 1% kemungkinan resiko kerugian bisa lebih dari itu (kurs: Rp.16,000)"
                 )
                 st.write(
-                    "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
+                    "Kemungkinan :green[kenaikan harga] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
                     "untuk :blue[1 lembar] nya adalah sebesar :green[Rp.%.0f]"
                     % (((max_price - start_price) * 16000) * 0.1),
@@ -182,7 +186,7 @@ try:
                     ", 1% kemungkinan resiko kerugian bisa lebih dari itu (kurs: Rp.16,000)"
                 )
                 st.write(
-                    "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
+                    "Kemungkinan :green[kenaikan harga] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
                     "untuk :blue[1 lembar] nya adalah sebesar :green[Rp.%.0f]"
                     % (((max_price - start_price) * 16000) * 0.2),
@@ -196,7 +200,7 @@ try:
                     ", 1% kemungkinan resiko kerugian bisa lebih dari itu (kurs: Rp.16,000)"
                 )
                 st.write(
-                    "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
+                    "Kemungkinan :green[kenaikan harga] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
                     "untuk :blue[1 lembar] nya adalah sebesar :green[Rp.%.0f]"
                     % (((max_price - start_price) * 16000) * 0.3),
@@ -210,7 +214,7 @@ try:
                     ", 1% kemungkinan resiko kerugian bisa lebih dari itu (kurs: Rp.16,000)"
                 )
                 st.write(
-                    "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
+                    "Kemungkinan :green[kenaikan harga] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
                     "untuk :blue[1 lembar] nya adalah sebesar :green[Rp.%.0f]"
                     % (((max_price - start_price) * 16000) * 0.4),
