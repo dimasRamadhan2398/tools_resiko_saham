@@ -213,64 +213,12 @@ try:
                     "untuk :blue[1 lembar] nya adalah sebesar :green[Rp.%.0f]"
                     % (((max_price - start_price) * 16000) * 0.4),
                     "(kurs: Rp.16,000)")
-
-    if st.checkbox("Bandingkan dengan saham lain"):
-        if data1.empty:
-            st.warning(
-                "Data ticker saham pertama tidak ditemukan. Tolong masukkan ticker saham pertama terlebih dahulu",
-                icon="⚠️")
-        else:
-            ticker2 = st.text_input(
-                "Ticker Saham (pakai '.JK' di akhir ticker untuk saham Indonesia)",
-                "TLKM.JK",
-                placeholder='Masukkan ticker saham disini, misalnya TLKM.JK')
-            data2 = yf.Ticker(ticker2).history(period="1y")
-            stck_pct2 = data2["Close"].pct_change()
-            rets2 = stck_pct2.dropna()
-
-            if data2.empty:
-                st.warning(
-                    "Data tidak ditemukan. Gunakan '.JK' di akhir ticker saham untuk saham Indonesia",
-                    icon="⚠️")
-            else:
-                end = datetime.now()
-                start = datetime(end.year - 1, end.month, end.day)
-                ticker = [ticker1, ticker2]
-                data = yf.download(ticker, start, end)
-                stck_pct = data['Adj Close'].pct_change()
-                rets = stck_pct.dropna()
-                fig = px.scatter(
-                    rets,
-                    x=rets.mean(),
-                    y=rets.std(),
-                    text=rets.columns,
-                    title="Resiko Harga Saham vs Return Harga Saham",
-                    labels={
-                        "x": "Return Harga Saham",
-                        "y": "Resiko Harga Saham"
-                    },
-                    width=800,
-                    height=600)
-
-                fig.update_traces(textposition='top center',
-                                  marker=dict(size=12, opacity=0.7))
-
-                st.plotly_chart(fig)
-
-                if rets1.std() > rets2.std():
-                    st.write(
-                        "Dari grafik diatas, Anda dapat melihat perbandingan resiko dengan return harga saham antara 2 saham yang berbeda. Saham yang lebih beresiko adalah saham :red[%]"
-                        %(ticker1))
-                else:
-                    st.write(
-                        "Dari grafik diatas, Anda dapat melihat perbandingan resiko dengan return harga saham antara 2 saham yang berbeda. Saham yang lebih beresiko adalah saham :red[%]"
-                        %(ticker2))
-
-    st.warning(
-        " DISCLAIMER : Tools AI di situs ini tidak dimaksudkan sebagai nasihat keuangan, investasi, atau perdagangan. Investasi saham melibatkan risiko, termasuk kehilangan modal. Penggunaan teknologi Artificial Intelligence dalam investasi saham juga memiliki risikonya tersendiri dan tidak ada jaminan bahwa teknologi ini akan membantu Anda menghasilkan keuntungan yang pasti. Anda bertanggung jawab penuh atas keputusan investasi Anda sendiri. Kami tidak bertanggung jawab atas kerugian atau kerusakan yang mungkin timbul dari penggunaan tools AI yang disediakan di situs ini. Anda harus melakukan analisa Anda sendiri terlebih dahulu dan mengevaluasi informasi sebelum Anda mengambil tindakan apapun berdasarkan tools AI yang dibagikan di situs ini.",
-        icon="⚠️")
-
+                
 except ValueError:
     st.warning(
         "Masukkan ticker saham yang Anda inginkan. Gunakan '.JK' di akhir ticker untuk saham Indonesia. Misal, BBRI.JK",
+        icon="⚠️")
+
+st.warning(
+        " DISCLAIMER : Tools AI di situs ini tidak dimaksudkan sebagai nasihat keuangan, investasi, atau perdagangan. Investasi saham melibatkan risiko, termasuk kehilangan modal. Penggunaan teknologi Artificial Intelligence dalam investasi saham juga memiliki risikonya tersendiri dan tidak ada jaminan bahwa teknologi ini akan membantu Anda menghasilkan keuntungan yang pasti. Anda bertanggung jawab penuh atas keputusan investasi Anda sendiri. Kami tidak bertanggung jawab atas kerugian atau kerusakan yang mungkin timbul dari penggunaan tools AI yang disediakan di situs ini. Anda harus melakukan analisa Anda sendiri terlebih dahulu dan mengevaluasi informasi sebelum Anda mengambil tindakan apapun berdasarkan tools AI yang dibagikan di situs ini.",
         icon="⚠️")
