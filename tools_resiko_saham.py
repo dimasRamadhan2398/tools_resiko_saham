@@ -239,14 +239,14 @@ try:
             else:
                 ticker = " ".join([ticker1, ticker2])
                 data_campur = yf.Ticker(ticker)
-                data = data_campur.history(period="max")
+                data = data_campur.history(period="1y")
                 stck_pct = data['Close'].pct_change()
                 rets = stck_pct.dropna()
                 fig = px.scatter(
                     rets,
                     x=rets.mean(),
                     y=rets.std(),
-                    text=rets.columns,
+                    text=rets.index,
                     title="Resiko Harga Saham vs Return Harga Saham",
                     labels={
                         "x": "Return Harga Saham",
