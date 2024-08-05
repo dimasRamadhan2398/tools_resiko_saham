@@ -127,7 +127,7 @@ else:
                     days, "hari kedepan jika Anda memilih saham", ticker1,
                     " untuk :blue[1 lot] nya adalah sebesar :red[-Rp.%.0f]"
                     % (((start_price - q) * 100) * 0.4),
-                    ", 1% kemungkinan resiko kerugian bisa lebih dari itu")
+                    ", 1% kemungkinan :red[resiko kerugian] bisa lebih dari itu")
                 st.write(
                     "Kemungkinan :green[kenaikan harga] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
@@ -139,7 +139,7 @@ else:
                     days, "hari kedepan jika Anda memilih saham", ticker1,
                     " untuk :blue[1 lot] nya adalah sebesar :red[-Rp.%.0f]"
                     % (((start_price - q) * 100) * 0.7),
-                    ", 1% kemungkinan resiko kerugian bisa lebih dari itu")
+                    ", 1% kemungkinan :red[resiko kerugian] bisa lebih dari itu")
                 st.write(
                     "Kemungkinan :green[kenaikan harga] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
@@ -151,7 +151,7 @@ else:
                     days, "hari kedepan jika Anda memilih saham", ticker1,
                     " untuk :blue[1 lot] nya adalah sebesar :red[-Rp.%.0f]"
                     % ((start_price - q) * 100),
-                    ", 1% kemungkinan resiko kerugian bisa lebih dari itu")
+                    ", 1% kemungkinan :red[resiko kerugian] bisa lebih dari itu")
                 st.write(
                     "Kemungkinan :green[kenaikan harga] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
@@ -166,7 +166,7 @@ else:
                     days, "hari kedepan jika Anda memilih saham", ticker1,
                     "untuk :blue[1 lembar] nya adalah sebesar :red[-Rp.%.0f]"
                     % (((start_price - q) * 16000) * 0.2),
-                    ", 1% kemungkinan resiko kerugian bisa lebih dari itu (kurs: Rp.16,000)"
+                    ", 1% kemungkinan :red[resiko kerugian] bisa lebih dari itu (kurs: Rp.16,000)"
                 )
                 st.write(
                     "Kemungkinan :green[kenaikan harga] yang bisa Anda dapat dalam",
@@ -180,7 +180,7 @@ else:
                     days, "hari kedepan jika Anda memilih saham", ticker1,
                     "untuk :blue[1 lembar] nya adalah sebesar :red[-Rp.%.0f]"
                     % (((start_price - q) * 16000) * 0.4),
-                    ", 1% kemungkinan resiko kerugian bisa lebih dari itu (kurs: Rp.16,000)"
+                    ", 1% kemungkinan :red[resiko kerugian] bisa lebih dari itu (kurs: Rp.16,000)"
                 )
                 st.write(
                     "Kemungkinan :green[kenaikan harga] yang bisa Anda dapat dalam",
@@ -194,7 +194,7 @@ else:
                     days, "hari kedepan jika Anda memilih saham", ticker1,
                     "untuk :blue[1 lembar] nya adalah sebesar :red[-Rp.%.0f]"
                     % (((start_price - q) * 16000) * 0.7),
-                    ", 1% kemungkinan resiko kerugian bisa lebih dari itu (kurs: Rp.16,000)"
+                    ", 1% kemungkinan :red[resiko kerugian] bisa lebih dari itu (kurs: Rp.16,000)"
                 )
                 st.write(
                     "Kemungkinan :green[kenaikan harga] yang bisa Anda dapat dalam",
@@ -208,7 +208,7 @@ else:
                     days, "hari kedepan jika Anda memilih saham", ticker1,
                     "untuk :blue[1 lembar] nya adalah sebesar :red[-Rp.%.0f]"
                     % ((start_price - q) * 16000),
-                    ", 1% kemungkinan resiko kerugian bisa lebih dari itu (kurs: Rp.16,000)"
+                    ", 1% kemungkinan :red[resiko kerugian] bisa lebih dari itu (kurs: Rp.16,000)"
                 )
                 st.write(
                     "Kemungkinan :green[kenaikan harga] yang bisa Anda dapat dalam",
