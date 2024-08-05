@@ -261,11 +261,11 @@ try:
 
                 if rets1.std() > rets2.std():
                     st.write(
-                        "Dari grafik diatas, Anda dapat melihat perbandingan resiko dengan return harga saham antara 2 saham yang berbeda. Saham yang lebih beresiko adalah saham :red[%]",
+                        "Dari grafik diatas, Anda dapat melihat perbandingan resiko dengan return harga saham antara 2 saham yang berbeda. Saham yang lebih beresiko adalah saham :red[%]"
                         %(ticker1))
                 else:
                     st.write(
-                        "Dari grafik diatas, Anda dapat melihat perbandingan resiko dengan return harga saham antara 2 saham yang berbeda. Saham yang lebih beresiko adalah saham :red[%]",
+                        "Dari grafik diatas, Anda dapat melihat perbandingan resiko dengan return harga saham antara 2 saham yang berbeda. Saham yang lebih beresiko adalah saham :red[%]"
                         %(ticker2))
 
     st.warning(
