@@ -1,5 +1,4 @@
 import time
-import pandas as pd
 import streamlit as st
 import yfinance as yf
 import numpy as np
@@ -235,8 +234,7 @@ try:
                     "Data tidak ditemukan. Gunakan '.JK' di akhir ticker saham untuk saham Indonesia",
                     icon="⚠️")
             else:
-                data = pd.concat([data1, data2], axis=1)
-                data.columns = [ticker1, ticker2]
+                data =[data1, data2]
                 stck_pct = data["Close"].pct_change()
                 rets = stck_pct.dropna()
                 fig = px.scatter(
