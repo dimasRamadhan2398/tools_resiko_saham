@@ -229,14 +229,12 @@ try:
             stck_pct2 = data2["Close"].pct_change()
             rets2 = stck_pct2.dropna()
 
-            if rets2.empty:
+            if data2.empty:
                 st.warning(
                     "Data tidak ditemukan. Gunakan '.JK' di akhir ticker saham untuk saham Indonesia",
                     icon="⚠️")
             else:
-                data =[data1, data2]
-                stck_pct = data["Close"].pct_change()
-                rets = stck_pct.dropna()
+                rets = [rets1, rets2]
                 fig = px.scatter(
                     rets,
                     x=rets.mean(),
