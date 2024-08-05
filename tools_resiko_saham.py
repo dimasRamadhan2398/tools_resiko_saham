@@ -11,13 +11,13 @@ st.warning(
 
 st.title("Tools Resiko & Return Harga Saham")
 
-    ticker1 = st.text_input(
+ticker1 = st.text_input(
         "Ticker saham (pakai '.JK' di akhir ticker untuk saham Indonesia)",
         "ASSA.JK",
         placeholder='Masukkan ticker saham disini, misalnya ASSA.JK')
-    data1 = yf.Ticker(ticker1).history(period="1y")
-    stck_pct1 = data1["Close"].pct_change()
-    rets1 = stck_pct1.dropna()
+data1 = yf.Ticker(ticker1).history(period="1y")
+stck_pct1 = data1["Close"].pct_change()
+rets1 = stck_pct1.dropna()
 
 if ticker1.empty:
     st.warning("Masukkan ticker saham yang Anda inginkan. Gunakan '.JK' di akhir ticker untuk saham Indonesia. Misal, BBRI.JK",
