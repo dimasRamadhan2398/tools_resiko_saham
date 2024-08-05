@@ -16,10 +16,8 @@ try:
         "Ticker saham (pakai '.JK' di akhir ticker untuk saham Indonesia)",
         "ASSA.JK",
         placeholder='Masukkan ticker saham disini, misalnya ASSA.JK')
-
-    data0 = yf.Ticker(ticker1)
-    data1 = data0.history(period="1y")
-    stck_pct1 = data1['Close'].pct_change()
+    data1 = yf.Ticker(ticker1).history(period="1y")
+    stck_pct1 = data1["Adj Close"].pct_change()
     rets1 = stck_pct1.dropna()
 
     if data1.empty:
@@ -227,9 +225,8 @@ try:
                 "Ticker Saham (pakai '.JK' di akhir ticker untuk saham Indonesia)",
                 "TLKM.JK",
                 placeholder='Masukkan ticker saham disini, misalnya TLKM.JK')
-            data2_0 = yf.Ticker(ticker2)
-            data2 = data2_0.history(period="1y")
-            stck_pct2 = data2['Close'].pct_change()
+            data2 = yf.Ticker(ticker2).history(period="1y")["Adj Close"]
+            stck_pct2 = data2["Adj Close"].pct_change()
             rets2 = stck_pct2.dropna()
 
             if rets2.empty:
@@ -237,10 +234,9 @@ try:
                     "Data tidak ditemukan. Gunakan '.JK' di akhir ticker saham untuk saham Indonesia",
                     icon="⚠️")
             else:
-                ticker = [ticker1, ticker2]
-                data_campur = yf.Ticker(ticker)
-                data = data_campur.history(period="1y")
-                stck_pct = data['Close'].pct_change()
+                data = pd.concat([data1, data2], axis=1)
+                data.columns = [ticker1, ticker2]
+                stck_pct = data["Adj Close"].pct_change()
                 rets = stck_pct.dropna()
                 fig = px.scatter(
                     rets,
