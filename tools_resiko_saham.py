@@ -70,7 +70,7 @@ try:
     if data1.empty:
         st.warning("Tidak ada data yang ditemukan", icon="⚠️")
     else:
-        days = st.slider("Tentukan jumlah hari yang kalian inginkan", 0, 365,
+        days = st.slider("Tentukan jumlah hari yang kalian inginkan", 1, 365,
                          365)
 
         dt = 1 / days
@@ -107,9 +107,7 @@ try:
         max_price = simulations.max()
 
         if ticker1.endswith('.JK'):
-            if days == 0:
-                st.warning("Tolong pilih angka lebih dari 0", icon="⚠️")
-            elif days == 1:
+            if days == 1:
                 st.warning("Tolong pilih angka lebih dari 1 hari karena tools ini belum bisa memprediksi resiko kerugian & kenaikan harga dalam 1 hari", icon="⚠️")
             elif 1 < days <= 90:
                 st.write(
