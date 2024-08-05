@@ -19,7 +19,7 @@ data1 = yf.Ticker(ticker1).history(period="1y")
 stck_pct1 = data1["Close"].pct_change()
 rets1 = stck_pct1.dropna()
 
-if ticker1.isnull:
+if not ticker1:
     st.warning("Masukkan ticker saham yang Anda inginkan. Gunakan '.JK' di akhir ticker untuk saham Indonesia. Misal, BBRI.JK",
         icon="⚠️")
 else:
