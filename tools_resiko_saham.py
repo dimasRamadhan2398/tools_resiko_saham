@@ -246,7 +246,6 @@ try:
                     rets,
                     x=rets.mean(),
                     y=rets.std(),
-                    text=rets.index,
                     title="Resiko Harga Saham vs Return Harga Saham",
                     labels={
                         "x": "Return Harga Saham",
