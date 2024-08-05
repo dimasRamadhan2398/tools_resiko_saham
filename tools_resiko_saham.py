@@ -11,7 +11,6 @@ st.warning(
 
 st.title("Tools Resiko & Return Harga Saham")
 
-try:
     ticker1 = st.text_input(
         "Ticker saham (pakai '.JK' di akhir ticker untuk saham Indonesia)",
         "ASSA.JK",
@@ -20,6 +19,10 @@ try:
     stck_pct1 = data1["Close"].pct_change()
     rets1 = stck_pct1.dropna()
 
+if ticker1.empty:
+    st.warning("Masukkan ticker saham yang Anda inginkan. Gunakan '.JK' di akhir ticker untuk saham Indonesia. Misal, BBRI.JK",
+        icon="⚠️")
+else:
     if data1.empty:
         st.warning(
             "Data dari ticker saham ini tidak ditemukan. Gunakan '.JK' dibelakang ticker saham untuk saham Indonesia. Misal BBCA.JK",
@@ -213,11 +216,6 @@ try:
                     "untuk :blue[1 lembar] nya adalah sebesar :green[Rp.%.0f]"
                     % (((max_price - start_price) * 16000) * 0.4),
                     "(kurs: Rp.16,000)")
-                
-except ValueError:
-    st.warning(
-        "Masukkan ticker saham yang Anda inginkan. Gunakan '.JK' di akhir ticker untuk saham Indonesia. Misal, BBRI.JK",
-        icon="⚠️")
 
 st.warning(
         " DISCLAIMER : Tools AI di situs ini tidak dimaksudkan sebagai nasihat keuangan, investasi, atau perdagangan. Investasi saham melibatkan risiko, termasuk kehilangan modal. Penggunaan teknologi Artificial Intelligence dalam investasi saham juga memiliki risikonya tersendiri dan tidak ada jaminan bahwa teknologi ini akan membantu Anda menghasilkan keuntungan yang pasti. Anda bertanggung jawab penuh atas keputusan investasi Anda sendiri. Kami tidak bertanggung jawab atas kerugian atau kerusakan yang mungkin timbul dari penggunaan tools AI yang disediakan di situs ini. Anda harus melakukan analisa Anda sendiri terlebih dahulu dan mengevaluasi informasi sebelum Anda mengambil tindakan apapun berdasarkan tools AI yang dibagikan di situs ini.",
