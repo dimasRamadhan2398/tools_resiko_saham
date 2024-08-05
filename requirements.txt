@@ -3,4 +3,3 @@ yfinance
 numpy
 plotly.express
 datetime
-pandas
