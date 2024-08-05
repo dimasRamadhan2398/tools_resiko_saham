@@ -18,7 +18,7 @@ try:
         placeholder='Masukkan ticker saham disini, misalnya ASSA.JK')
 
     data0 = yf.Ticker(ticker1)
-    data1 = data0.history(period="max")
+    data1 = data0.history(period="1y")
     stck_pct1 = data1['Close'].pct_change()
     rets1 = stck_pct1.dropna()
 
@@ -111,51 +111,51 @@ try:
                 st.write(
                     "99% kemungkinan :red[resiko kerugian] yang bisa Anda alami dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
-                    " untuk :blue[1 lot] nya adalah sebesar -",
-                    (((start_price - q) * 100) * 0.2),
+                    " untuk :blue[1 lot] nya adalah sebesar :red["-Rp.%.0f"]"
+                    % (((start_price - q) * 100) * 0.2),
                     ", 1% kemungkinan :red[resiko kerugian] bisa lebih dari itu"
                 )
                 st.write(
                     "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
-                    "untuk :blue[1 lot] nya adalah sebesar ",
-                    (((max_price - start_price) * 100) * 0.1))
+                    "untuk :blue[1 lot] nya adalah sebesar :green["Rp.%.0f"]"
+                    % (((max_price - start_price) * 100) * 0.1))
             elif 91 < days <= 180:
                 st.write(
                     "99% kemungkinan :red[resiko kerugian] yang bisa Anda alami dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
-                    " untuk :blue[1 lot] nya adalah sebesar -",
-                    (((start_price - q) * 100) * 0.4),
+                    " untuk :blue[1 lot] nya adalah sebesar :red["-Rp.%.0f"]"
+                    % (((start_price - q) * 100) * 0.4),
                     ", 1% kemungkinan resiko kerugian bisa lebih dari itu")
                 st.write(
                     "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
-                    "untuk :blue[1 lot] nya adalah sebesar ",
-                    (((max_price - start_price) * 100) * 0.2))
+                    "untuk :blue[1 lot] nya adalah sebesar :green["Rp.%.0f"]"
+                    % (((max_price - start_price) * 100) * 0.2))
             elif 181 < days <= 270:
                 st.write(
                     "99% kemungkinan :red[resiko kerugian] yang bisa Anda alami dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
-                    " untuk :blue[1 lot] nya adalah sebesar -",
-                    (((start_price - q) * 100) * 0.7),
+                    " untuk :blue[1 lot] nya adalah sebesar :red["-Rp.%.0f"]"
+                    % (((start_price - q) * 100) * 0.7),
                     ", 1% kemungkinan resiko kerugian bisa lebih dari itu")
                 st.write(
                     "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
-                    "untuk :blue[1 lot] nya adalah sebesar ",
-                    (((max_price - start_price) * 100) * 0.3))
+                    "untuk :blue[1 lot] nya adalah sebesar :green["Rp.%.0f"]"
+                    % (((max_price - start_price) * 100) * 0.3))
             elif 271 < days <= 365:
                 st.write(
                     "99% kemungkinan :red[resiko kerugian] yang bisa Anda alami dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
-                    " untuk :blue[1 lot] nya adalah sebesar -",
-                    ((start_price - q) * 100),
+                    " untuk :blue[1 lot] nya adalah sebesar :red["-Rp.%.0f"]"
+                    % ((start_price - q) * 100),
                     ", 1% kemungkinan resiko kerugian bisa lebih dari itu")
                 st.write(
                     "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
-                    "untuk :blue[1 lot] nya adalah sebesar ",
-                    (((max_price - start_price) * 100) * 0.4))
+                    "untuk :blue[1 lot] nya adalah sebesar :green["Rp.%.0f"]"
+                    % (((max_price - start_price) * 100) * 0.4))
 
         else:
 
@@ -163,57 +163,57 @@ try:
                 st.write(
                     "99% kemungkinan :red[resiko kerugian] yang bisa Anda alami dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
-                    "untuk :blue[1 lembar] nya adalah sebesar -",
-                    (((start_price - q) * 16000) * 0.2),
+                    "untuk :blue[1 lembar] nya adalah sebesar :red["-Rp.%.0f"]"
+                    % (((start_price - q) * 16000) * 0.2),
                     ", 1% kemungkinan resiko kerugian bisa lebih dari itu (kurs: Rp.16,000)"
                 )
                 st.write(
                     "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
-                    "untuk :blue[1 lembar] nya adalah sebesar ",
-                    (((max_price - start_price) * 16000) * 0.1),
+                    "untuk :blue[1 lembar] nya adalah sebesar :green["Rp.%.0f"]"
+                    % (((max_price - start_price) * 16000) * 0.1),
                     "(kurs: Rp.16,000)")
             elif 91 < days <= 180:
                 st.write(
                     "99% kemungkinan :red[resiko kerugian] yang bisa Anda alami dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
-                    "untuk :blue[1 lembar] nya adalah sebesar -",
-                    (((start_price - q) * 16000) * 0.4),
+                    "untuk :blue[1 lembar] nya adalah sebesar :red["-Rp.%.0f"]"
+                    % (((start_price - q) * 16000) * 0.4),
                     ", 1% kemungkinan resiko kerugian bisa lebih dari itu (kurs: Rp.16,000)"
                 )
                 st.write(
                     "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
-                    "untuk :blue[1 lembar] nya adalah sebesar ",
-                    (((max_price - start_price) * 16000) * 0.2),
+                    "untuk :blue[1 lembar] nya adalah sebesar :green["Rp.%.0f"]"
+                    % (((max_price - start_price) * 16000) * 0.2),
                     "(kurs: Rp.16,000)")
             elif 181 < days <= 270:
                 st.write(
                     "99% kemungkinan :red[resiko kerugian] yang bisa Anda alami dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
-                    "untuk :blue[1 lembar] nya adalah sebesar -",
-                    (((start_price - q) * 16000) * 0.7),
+                    "untuk :blue[1 lembar] nya adalah sebesar :red["-Rp.%.0f"]"
+                    % (((start_price - q) * 16000) * 0.7),
                     ", 1% kemungkinan resiko kerugian bisa lebih dari itu (kurs: Rp.16,000)"
                 )
                 st.write(
                     "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
-                    "untuk :blue[1 lembar] nya adalah sebesar ",
-                    (((max_price - start_price) * 16000) * 0.3),
+                    "untuk :blue[1 lembar] nya adalah sebesar :green["Rp.%.0f"]"
+                    % (((max_price - start_price) * 16000) * 0.3),
                     "(kurs: Rp.16,000)")
             elif 271 < days <= 365:
                 st.write(
                     "99% kemungkinan :red[resiko kerugian] yang bisa Anda alami dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
-                    "untuk :blue[1 lembar] nya adalah sebesar -",
-                    ((start_price - q) * 16000),
+                    "untuk :blue[1 lembar] nya adalah sebesar :red["-Rp.%.0f"]"
+                    % ((start_price - q) * 16000),
                     ", 1% kemungkinan resiko kerugian bisa lebih dari itu (kurs: Rp.16,000)"
                 )
                 st.write(
                     "Kemungkinan :green[Capital Gain] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
-                    "untuk :blue[1 lembar] nya adalah sebesar ",
-                    (((max_price - start_price) * 16000) * 0.4),
+                    "untuk :blue[1 lembar] nya adalah sebesar :green["Rp.%.0f"]"
+                    % (((max_price - start_price) * 16000) * 0.4),
                     "(kurs: Rp.16,000)")
 
     if st.checkbox("Bandingkan dengan saham lain"):
@@ -228,7 +228,7 @@ try:
                 "TLKM.JK",
                 placeholder='Masukkan ticker saham disini, misalnya TLKM.JK')
             data2_0 = yf.Ticker(ticker2)
-            data2 = data2_0.history(period="max")
+            data2 = data2_0.history(period="1y")
             stck_pct2 = data2['Close'].pct_change()
             rets2 = stck_pct2.dropna()
 
@@ -237,7 +237,7 @@ try:
                     "Data tidak ditemukan. Gunakan '.JK' di akhir ticker saham untuk saham Indonesia",
                     icon="⚠️")
             else:
-                ticker = [ticker1, ticker2]
+                ticker = " ".join([ticker1, ticker2])
                 data_campur = yf.Ticker(ticker)
                 data = data_campur.history(period="max")
                 stck_pct = data['Close'].pct_change()
