@@ -111,7 +111,7 @@ try:
                 st.write(
                     "99% kemungkinan :red[resiko kerugian] yang bisa Anda alami dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
-                    " untuk :blue[1 lot] nya adalah sebesar -Rp :red[%.0f]"
+                    " untuk :blue[1 lot] nya adalah sebesar  :red[-Rp%.0f]"
                     % (((start_price - q) * 100) * 0.2),
                     ", 1% kemungkinan :red[resiko kerugian] bisa lebih dari itu"
                 )
