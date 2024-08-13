@@ -156,7 +156,7 @@ else:
                     "Kemungkinan :green[keuntungan] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
                     "untuk :blue[1 lot] nya adalah sebesar :green[Rp.%.0f]"
-                    % (((max_price - start_price) * 100) * 0.4), "atau sebesar :green[%.2f]%%" % (return_keuntungan * 0.5))
+                    % (((max_price - start_price) * 100) * 0.4), "atau sebesar :green[%.2f]%%" % (return_keuntungan * 0.7))
 
         else:
 
