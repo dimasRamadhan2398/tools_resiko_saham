@@ -120,7 +120,7 @@ else:
                     "Kemungkinan :green[keuntungan] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
                     "untuk :blue[1 lot] nya adalah sebesar :green[Rp.%.0f]"
-                    % (((max_price - start_price) * 100) * 0.1), "atau sekitar :green[%.2f]%%" % (return_keuntungan * 0.1))
+                    % (((max_price - start_price) * 100) * 0.1), "atau sekitar :green[%.2f]%%" % (return_keuntungan * 0.4))
             elif 91 < days <= 180:
                 st.write(
                     "99% kemungkinan :red[resiko kerugian] yang bisa Anda alami dalam",
@@ -132,7 +132,7 @@ else:
                     "Kemungkinan :green[keuntungan] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
                     "untuk :blue[1 lot] nya adalah sebesar :green[Rp.%.0f]"
-                    % (((max_price - start_price) * 100) * 0.2), "atau sekitar :green[%.2f]%%" % (return_keuntungan * 0.2))
+                    % (((max_price - start_price) * 100) * 0.2), "atau sekitar :green[%.2f]%%" % (return_keuntungan * 0.5))
             elif 181 < days <= 270:
                 st.write(
                     "99% kemungkinan :red[resiko kerugian] yang bisa Anda alami dalam",
@@ -144,7 +144,7 @@ else:
                     "Kemungkinan :green[keuntungan] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
                     "untuk :blue[1 lot] nya adalah sebesar :green[Rp.%.0f]"
-                    % (((max_price - start_price) * 100) * 0.3), "atau sekitar :green[%.2f]%%" % (return_keuntungan * 0.3))
+                    % (((max_price - start_price) * 100) * 0.3), "atau sekitar :green[%.2f]%%" % (return_keuntungan * 0.6))
             elif 271 < days <= 365:
                 st.write(
                     "99% kemungkinan :red[resiko kerugian] yang bisa Anda alami dalam",
@@ -172,7 +172,7 @@ else:
                     "Kemungkinan :green[keuntungan] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
                     "untuk :blue[1 lembar] nya adalah sebesar :green[Rp.%.0f]"
-                    % (((max_price - start_price) * 16000) * 0.1), "atau sekitar :green[%.2f]%%" % (return_keuntungan * 0.1),
+                    % (((max_price - start_price) * 16000) * 0.1), "atau sekitar :green[%.2f]%%" % (return_keuntungan * 0.4),
                     "(kurs: Rp.16,000)")
             elif 91 < days <= 180:
                 st.write(
@@ -186,7 +186,7 @@ else:
                     "Kemungkinan :green[keuntungan] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
                     "untuk :blue[1 lembar] nya adalah sebesar :green[Rp.%.0f]"
-                    % (((max_price - start_price) * 16000) * 0.2), "atau sekitar :green[%.2f]%%" % (return_keuntungan * 0.2),
+                    % (((max_price - start_price) * 16000) * 0.2), "atau sekitar :green[%.2f]%%" % (return_keuntungan * 0.5),
                     "(kurs: Rp.16,000)")
             elif 181 < days <= 270:
                 st.write(
@@ -200,7 +200,7 @@ else:
                     "Kemungkinan :green[keuntungan] yang bisa Anda dapat dalam",
                     days, "hari kedepan jika Anda memilih saham", ticker1,
                     "untuk :blue[1 lembar] nya adalah sebesar :green[Rp.%.0f]"
-                    % (((max_price - start_price) * 16000) * 0.3), "atau sekitar :green[%.2f]%%" % (return_keuntungan * 0.3),
+                    % (((max_price - start_price) * 16000) * 0.3), "atau sekitar :green[%.2f]%%" % (return_keuntungan * 0.6),
                     "(kurs: Rp.16,000)")
             elif 271 < days <= 365:
                 st.write(
