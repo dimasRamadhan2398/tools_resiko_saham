@@ -2,7 +2,6 @@ import time
 import streamlit as st
 import yfinance as yf
 import numpy as np
-import plotly.express as px
 from datetime import datetime
 
 st.warning(
@@ -22,7 +21,15 @@ data1 = yf.Ticker(ticker1).history(period="1y")
 stck_pct1 = data1["Close"].pct_change()
 rets1 = stck_pct1.dropna()
 
-st.button("Analisa")
+def loading_data():
+    msg = st.toast('Memuat data...')
+    time.sleep(1)
+    msg.toast('Memproses data...')
+    time.sleep(1)
+    msg.toast('Data berhasil diubah', icon = "🎉")
+
+if st.button("Analisa"):
+    loading_data()
 
 if not ticker1:
     st.warning("Masukkan ticker saham yang Anda inginkan. Gunakan '.JK' di akhir ticker untuk saham Indonesia. Misal, BBRI.JK",
@@ -39,7 +46,6 @@ else:
             "Data dari ticker saham ini tidak ditemukan. Gunakan '.JK' dibelakang ticker saham untuk saham Indonesia. Misal BBCA.JK",
             icon="⚠️")
     else:
-
         st.subheader("Grafik Return Harga Saham")
         st.line_chart(rets1, x_label="Tanggal", y_label="Return Harga Saham")
 
@@ -81,7 +87,8 @@ else:
     else:
         days = st.slider("Tentukan jumlah hari yang kalian inginkan", 2, 365,
                          365)
-
+        if days:
+            loading_data()
         dt = 1 / days
         mu = rets1.mean()
         sigma = rets1.std()
@@ -128,12 +135,18 @@ else:
                     days, "hari kedepan untuk :blue[1 lot] nya adalah sebesar :red[-Rp.%.0f]." % (nilai_kerugian * 100), "Kerugian tersebut diprediksi menyentuh harga :red[Rp.%.0f]" % (harga_kerugian),
                     "yaitu sebesar :red[-%.2f]%%" %(persen_kerugian)   
                 )
+                col1, col2 = st.columns(2)
+                col1.metric("Predicted Loss Value", "-Rp.%.0f"%(nilai_kerugian*100), "-%.2f%%"%(persen_kerugian))
+                col2.metric("Predicted Loss Price", "%.0f"%(harga_kerugian), "-%.2f%%"%(persen_kerugian))
             else:
                 st.write(
                     "Jika Anda membeli saham :blue[%s]" %(ticker1), "di harga sekarang yaitu :blue[Rp.%.0f]." %(start_price), "Maka kemungkinan :red[resiko kerugian tertinggi] yang bisa Anda alami dalam",
                     days, "hari kedepan untuk :blue[1 lembar] nya adalah sebesar :red[-Rp.%.0f]." % (nilai_kerugian * kurs_sekarang), "Kerugian tersebut diprediksi menyentuh harga :red[Rp.%.0f]" % (harga_kerugian),
                     "yaitu sebesar :red[-%.2f]%%" %(persen_kerugian), " (kurs: :blue[Rp.%.0f])" %(kurs_sekarang)
                 )
+                col1, col2 = st.columns(2)
+                col1.metric("Predicted Loss Value", "-Rp.%.0f"%(nilai_kerugian*kurs_sekarang), "-%.2f%%"%(persen_kerugian))
+                col2.metric("Predicted Loss Price", "%.0f"%(harga_kerugian), "-%.2f%%"%(persen_kerugian))
 
         def keuntungan(persen):
             nilai_keuntungan = (max_price - start_price) * persen
@@ -145,12 +158,18 @@ else:
                     days, "hari kedepan untuk :blue[1 lot] nya adalah sebesar :green[Rp.%.0f]." % (nilai_keuntungan * 100), "Keuntungan tersebut diprediksi menyentuh harga :green[Rp.%.0f]" % (harga_keuntungan),
                     "yaitu sebesar :green[%.2f]%%" %(persen_keuntungan)
                 )
+                col1, col2 = st.columns(2)
+                col1.metric("Predicted Gain Value", "Rp.%.0f"%(nilai_keuntungan*100), "%.2f%%"%(persen_keuntungan))
+                col2.metric("Predicted Gain Price", "%.0f"%(harga_keuntungan), "%.2f%%"%(persen_keuntungan))
             else:
                 st.write( 
                     "Jika Anda membeli saham :blue[%s]" %(ticker1), "di harga sekarang yaitu :blue[Rp.%.0f]." %(start_price), "Maka kemungkinan :red[keuntungan tertinggi] yang bisa Anda dapatkan dalam",
                     days, "hari kedepan untuk :blue[1 lembar] nya adalah sebesar :green[Rp.%.0f]." % (nilai_keuntungan * kurs_sekarang), "Kerugian tersebut diprediksi menyentuh harga :green[Rp.%.0f]" % (harga_keuntungan),
                     "yaitu sebesar :green[%.2f]%%" %(persen_keuntungan), " (kurs: :blue[Rp.%.0f])" %(kurs_sekarang)
                 )
+                col1, col2 = st.columns(2)
+                col1.metric("Predicted Gain Value", "Rp.%.0f"%(nilai_keuntungan*kurs_sekarang), "%.2f%%"%(persen_keuntungan))
+                col2.metric("Predicted Gain Price", "%.0f"%(harga_keuntungan), "%.2f%%"%(persen_keuntungan))
 
         if 1 < days <= 90:
             kerugian(0.2)
