@@ -175,10 +175,10 @@ else:
         if 1 < years <= 3:
             kerugian(4)
             keuntungan(4)
-        elif 4 < days <= 6:
+        elif 4 < years <= 6:
             kerugian(8)
             keuntungan(8)
-        elif 7 < days <= 10:
+        elif 7 < years <= 10:
             kerugian(12)
             keuntungan(12)
 
