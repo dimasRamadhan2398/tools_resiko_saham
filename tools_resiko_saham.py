@@ -118,7 +118,7 @@ else:
 
         for run in range(runs):
             simulations[run] = stock_monte_carlo(start_price, years_pick, mu,
-                                                 sigma)[days - 1]
+                                                 sigma)[years_pick - 1]
 
         q = np.percentile(simulations, 1)
         max_price = simulations.max()
