@@ -21,14 +21,10 @@ data1 = yf.Ticker(ticker1).history(period="1y")
 stck_pct1 = data1["Close"].pct_change()
 rets1 = stck_pct1.dropna()
 
-def loading_data():
-    msg = st.toast('Memuat data...')
-    time.sleep(1)
-    msg.toast('Memproses data...')
-    time.sleep(1)
-    msg.toast('Data berhasil diubah', icon = "🎉")
-
 st.button("Analisa")
+
+msg = st.toast('Memuat data...')
+time.sleep(1)
     
 if not ticker1:
     st.warning("Masukkan ticker saham yang Anda inginkan. Gunakan '.JK' di akhir ticker untuk saham Indonesia. Misal, BBRI.JK",
@@ -86,8 +82,6 @@ else:
     else:
         years = st.slider("Tentukan jumlah tahun yang kalian inginkan", 1, 10,
                          10)
-        if years:
-            loading_data()
         years_pick = years * 365
         dt = 1 / years_pick
         mu = rets1.mean()
@@ -170,19 +164,21 @@ else:
                 col1, col2 = st.columns(2)
                 col1.metric("Predicted Highest Gain Value", "Rp%.0f"%(nilai_keuntungan*kurs_sekarang), "%.2f%%"%(persen_keuntungan))
                 col2.metric("Predicted Highest Gain Price", "%.0f"%(harga_keuntungan), "%.2f%%"%(persen_keuntungan))
-
+                
+        msg.toast('Memproses data...')
+        time.sleep(1)
+        
         if 0 < years <= 3:
-            loading_data()
             kerugian(4)
             keuntungan(4)
         elif 4 < years <= 6:
-            loading_data()
             kerugian(8)
             keuntungan(8)
         elif 7 < years <= 10:
-            loading_data()
             kerugian(12)
             keuntungan(12)
+            
+        msg.toast('Data berhasil diubah', icon = "🎉")
 
 st.warning(
     "DISCLAIMER : Tools ini hanya 'membantu' Anda, bukan menjadi 'dasar' atau 'alasan utama' Anda untuk memilih saham yang Anda inginkan. Tools di situs ini tidak dimaksudkan sebagai nasihat keuangan, investasi, atau perdagangan. Investasi saham melibatkan risiko, termasuk kehilangan modal. Penggunaan teknologi Artificial Intelligence dalam investasi saham juga memiliki risikonya tersendiri dan tidak ada jaminan bahwa teknologi ini akan membantu Anda menghasilkan keuntungan yang pasti.",
