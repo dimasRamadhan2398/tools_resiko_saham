@@ -28,9 +28,8 @@ def loading_data():
     time.sleep(1)
     msg.toast('Data berhasil diubah', icon = "🎉")
 
-if st.button("Analisa"):
-    loading_data()
-
+st.button("Analisa")
+    
 if not ticker1:
     st.warning("Masukkan ticker saham yang Anda inginkan. Gunakan '.JK' di akhir ticker untuk saham Indonesia. Misal, BBRI.JK",
         icon="⚠️")
@@ -172,13 +171,16 @@ else:
                 col1.metric("Predicted Highest Gain Value", "Rp%.0f"%(nilai_keuntungan*kurs_sekarang), "%.2f%%"%(persen_keuntungan))
                 col2.metric("Predicted Highest Gain Price", "%.0f"%(harga_keuntungan), "%.2f%%"%(persen_keuntungan))
 
-        if 1 < years <= 3:
+        if 0 < years <= 3:
+            loading_data()
             kerugian(4)
             keuntungan(4)
         elif 4 < years <= 6:
+            loading_data()
             kerugian(8)
             keuntungan(8)
         elif 7 < years <= 10:
+            loading_data()
             kerugian(12)
             keuntungan(12)
 
