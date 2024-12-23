@@ -22,9 +22,6 @@ stck_pct1 = data1["Close"].pct_change()
 rets1 = stck_pct1.dropna()
 
 st.button("Analisa")
-
-msg = st.toast('Memuat data...')
-time.sleep(1)
     
 if not ticker1:
     st.warning("Masukkan ticker saham yang Anda inginkan. Gunakan '.JK' di akhir ticker untuk saham Indonesia. Misal, BBRI.JK",
@@ -86,6 +83,9 @@ else:
         dt = 1 / years_pick
         mu = rets1.mean()
         sigma = rets1.std()
+
+        msg = st.toast('Memuat data...')
+        time.sleep(1)
 
         def stock_monte_carlo(start_price, years_pick, mu, sigma):
 
