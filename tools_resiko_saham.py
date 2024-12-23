@@ -164,21 +164,25 @@ else:
                 col1, col2 = st.columns(2)
                 col1.metric("Predicted Highest Gain Value", "Rp%.0f"%(nilai_keuntungan*kurs_sekarang), "%.2f%%"%(persen_keuntungan))
                 col2.metric("Predicted Highest Gain Price", "%.0f"%(harga_keuntungan), "%.2f%%"%(persen_keuntungan))
-                
-        msg.toast('Memproses data...')
-        time.sleep(1)
         
         if 0 < years <= 3:
+            msg.toast('Memproses data...')
+            time.sleep(1)
             kerugian(4)
             keuntungan(4)
-        elif 4 < years <= 6:
+            msg.toast('Data berhasil diubah', icon = "🎉")
+        elif 3 < years <= 6:
+            msg.toast('Memproses data...')
+            time.sleep(1)
             kerugian(8)
             keuntungan(8)
-        elif 7 < years <= 10:
+            msg.toast('Data berhasil diubah', icon = "🎉")
+        elif 6 < years <= 10:
+            msg.toast('Memproses data...')
+            time.sleep(1)
             kerugian(12)
             keuntungan(12)
-            
-        msg.toast('Data berhasil diubah', icon = "🎉")
+            msg.toast('Data berhasil diubah', icon = "🎉")
 
 st.warning(
     "DISCLAIMER : Tools ini hanya 'membantu' Anda, bukan menjadi 'dasar' atau 'alasan utama' Anda untuk memilih saham yang Anda inginkan. Tools di situs ini tidak dimaksudkan sebagai nasihat keuangan, investasi, atau perdagangan. Investasi saham melibatkan risiko, termasuk kehilangan modal. Penggunaan teknologi Artificial Intelligence dalam investasi saham juga memiliki risikonya tersendiri dan tidak ada jaminan bahwa teknologi ini akan membantu Anda menghasilkan keuntungan yang pasti.",
