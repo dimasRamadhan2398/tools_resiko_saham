@@ -11,7 +11,7 @@ st.warning(
     "DISCLAIMER : Anda bertanggung jawab penuh atas keputusan investasi Anda sendiri. Kami tidak bertanggung jawab atas kerugian atau kerusakan yang mungkin timbul dari penggunaan tools yang disediakan di situs ini. Anda harus melakukan analisa Anda sendiri terlebih dahulu dan mengevaluasi informasi sebelum Anda mengambil tindakan apapun berdasarkan tools yang dibagikan di situs ini.",
     icon="⚠️")
 
-st.title("Tools Resiko & Return Harga Saham")
+st.title("Tools Analisa & Prediksi Harga Saham")
 
 ticker1 = st.text_input(
         "Ticker saham (pakai '.JK' di akhir ticker untuk saham Indonesia)",
@@ -38,7 +38,7 @@ else:
             "Data dari ticker saham ini tidak ditemukan. Gunakan '.JK' dibelakang ticker saham untuk saham Indonesia. Misal BBCA.JK",
             icon="⚠️")
     else:
-        st.subheader("Grafik Return Harga Saham")
+        st.subheader("Analisa Grafik Return Harga Saham")
         st.line_chart(rets1, x_label="Tanggal", y_label="Return Harga Saham")
 
         if stck_pct1.max() > 0:
@@ -72,7 +72,7 @@ else:
             "Return harga saham dalam 1 tahun terakhir naik dan turun sebesar : :blue[%.2f]%% dari rata - rata return harga sahamnya"
             % (stck_pct1.std() * 100))
 
-    st.subheader("Resiko vs Keuntungan Harga Saham")
+    st.subheader("Prediksi Harga Saham")
 
     if data1.empty:
         st.warning("Tidak ada data yang ditemukan", icon="⚠️")
