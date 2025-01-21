@@ -121,7 +121,7 @@ else:
 
         def kerugian(persen):
             nilai_kerugian = (start_price - q) * persen
-            harga_kerugian = start_price - nilai_kerugian
+            harga_kerugian = nilai_kerugian - start_price
             persen_kerugian = (nilai_kerugian / start_price) * 100
             if ticker1.endswith('.JK'):
                 st.write(
