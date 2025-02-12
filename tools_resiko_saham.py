@@ -124,23 +124,35 @@ else:
             harga_kerugian = start_price - nilai_kerugian
             persen_kerugian = (nilai_kerugian / start_price) * 100
             if ticker1.endswith('.JK'):
-                st.write(
-                    "Jika Anda membeli saham :blue[%s]" %(ticker1), "di harga sekarang yaitu :blue[Rp%.0f]." %(start_price), "Maka kemungkinan :red[resiko kerugian tertinggi] yang bisa Anda alami dalam",
-                    years, "tahun kedepan untuk :blue[1 lot] nya adalah sebesar :red[-Rp%.0f]." % (nilai_kerugian * 100), "Kerugian tersebut diprediksi menyentuh harga :red[Rp%.0f]" % (harga_kerugian),
-                    "yaitu sebesar :red[-%.2f]%%" %(persen_kerugian)   
-                )
-                col1, col2 = st.columns(2)
-                col1.metric("Predicted Highest Loss Value", "-Rp%.0f"%(nilai_kerugian*100), "-%.2f%%"%(persen_kerugian))
-                col2.metric("Predicted Highest Loss Price", "%.0f"%(harga_kerugian), "-%.2f%%"%(persen_kerugian))
+                if nilai_kerugian < 0 :
+                    st.subheader(
+                        "Jika Anda membeli saham :blue[%s]" %(ticker1), "di harga sekarang yaitu :blue[Rp%.0f]." %(start_price), "Maka kemungkinan :red[resiko kerugian tertinggi] yang bisa Anda alami dalam",
+                        years, "tahun kedepan untuk :blue[1 lot] nya adalah modal investasi Anda menjadi hilang karena menyentuh angka :red[0]"
+                    )
+                else:
+                    st.write(
+                        "Jika Anda membeli saham :blue[%s]" %(ticker1), "di harga sekarang yaitu :blue[Rp%.0f]." %(start_price), "Maka kemungkinan :red[resiko kerugian tertinggi] yang bisa Anda alami dalam",
+                        years, "tahun kedepan untuk :blue[1 lot] nya adalah sebesar :red[-Rp%.0f]." % (nilai_kerugian * 100), "Kerugian tersebut diprediksi menyentuh harga :red[Rp%.0f]" % (harga_kerugian),
+                        "yaitu sebesar :red[-%.2f]%%" %(persen_kerugian)   
+                    )
+                    col1, col2 = st.columns(2)
+                    col1.metric("Predicted Highest Loss Value", "-Rp%.0f"%(nilai_kerugian*100), "-%.2f%%"%(persen_kerugian))
+                    col2.metric("Predicted Highest Loss Price", "%.0f"%(harga_kerugian), "-%.2f%%"%(persen_kerugian))
             else:
-                st.write(
-                    "Jika Anda membeli saham :blue[%s]" %(ticker1), "di harga sekarang yaitu :blue[Rp%.0f]." %(start_price), "Maka kemungkinan :red[resiko kerugian tertinggi] yang bisa Anda alami dalam",
-                    years, "tahun kedepan untuk :blue[1 lembar] nya adalah sebesar :red[-Rp%.0f]." % (nilai_kerugian * kurs_sekarang), "Kerugian tersebut diprediksi menyentuh harga :red[Rp%.0f]" % (harga_kerugian),
-                    "yaitu sebesar :red[-%.2f]%%" %(persen_kerugian), " (kurs: :blue[Rp%.0f])" %(kurs_sekarang)
-                )
-                col1, col2 = st.columns(2)
-                col1.metric("Predicted Highest Loss Value", "-Rp%.0f"%(nilai_kerugian*kurs_sekarang), "-%.2f%%"%(persen_kerugian))
-                col2.metric("Predicted Highest Loss Price", "%.0f"%(harga_kerugian), "-%.2f%%"%(persen_kerugian))
+                if nilai_kerugian < 0:
+                    st.subheader(
+                        "Jika Anda membeli saham :blue[%s]" %(ticker1), "di harga sekarang yaitu :blue[Rp%.0f]." %(start_price), "Maka kemungkinan :red[resiko kerugian tertinggi] yang bisa Anda alami dalam",
+                        years, "tahun kedepan untuk :blue[1 lot] nya adalah modal investasi Anda menjadi hilang karena menyentuh angka :red[0]"
+                    )
+                else:
+                    st.write(
+                        "Jika Anda membeli saham :blue[%s]" %(ticker1), "di harga sekarang yaitu :blue[Rp%.0f]." %(start_price), "Maka kemungkinan :red[resiko kerugian tertinggi] yang bisa Anda alami dalam",
+                        years, "tahun kedepan untuk :blue[1 lembar] nya adalah sebesar :red[-Rp%.0f]." % (nilai_kerugian * kurs_sekarang), "Kerugian tersebut diprediksi menyentuh harga :red[Rp%.0f]" % (harga_kerugian),
+                        "yaitu sebesar :red[-%.2f]%%" %(persen_kerugian), " (kurs: :blue[Rp%.0f])" %(kurs_sekarang)
+                    )
+                    col1, col2 = st.columns(2)
+                    col1.metric("Predicted Highest Loss Value", "-Rp%.0f"%(nilai_kerugian*kurs_sekarang), "-%.2f%%"%(persen_kerugian))
+                    col2.metric("Predicted Highest Loss Price", "%.0f"%(harga_kerugian), "-%.2f%%"%(persen_kerugian))
 
         def keuntungan(multiple):
             nilai_keuntungan = (max_price - start_price) * multiple
