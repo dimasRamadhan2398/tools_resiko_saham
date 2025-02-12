@@ -125,7 +125,7 @@ else:
             persen_kerugian = (nilai_kerugian / start_price) * 100
             if ticker1.endswith('.JK'):
                 if harga_kerugian < 0 :
-                    st.subheader("Resiko kerugian yang bisa Anda alami adalah modal investasi Anda hilang karena harga saham menyentuh dibawah 0")
+                    st.subheader(":red[Resiko kerugian] yang bisa Anda alami adalah modal investasi Anda hilang karena harga saham menyentuh :red[dibawah 0]")
                 else:
                     st.write(
                         "Jika Anda membeli saham :blue[%s]" %(ticker1), "di harga sekarang yaitu :blue[Rp%.0f]." %(start_price), "Maka kemungkinan :red[resiko kerugian tertinggi] yang bisa Anda alami dalam",
@@ -163,7 +163,7 @@ else:
                 col2.metric("Predicted Highest Gain Price", "%.0f"%(harga_keuntungan), "%.2f%%"%(persen_keuntungan))
             else:
                 st.write( 
-                    "Jika Anda membeli saham :blue[%s]" %(ticker1), "di harga sekarang yaitu :blue[Rp%.0f]." %(start_price), "Maka kemungkinan :red[keuntungan tertinggi] yang bisa Anda dapatkan dalam",
+                    "Jika Anda membeli saham :blue[%s]" %(ticker1), "di harga sekarang yaitu :blue[Rp%.0f]." %(start_price), "Maka kemungkinan :green[keuntungan tertinggi] yang bisa Anda dapatkan dalam",
                     years, "tahun kedepan untuk :blue[1 lembar] nya adalah sebesar :green[Rp%.0f]." % (nilai_keuntungan * kurs_sekarang), "Kerugian tersebut diprediksi menyentuh harga :green[Rp%.0f]" % (harga_keuntungan),
                     "yaitu sebesar :green[%.2f]%%" %(persen_keuntungan), " (kurs: :blue[Rp%.0f])" %(kurs_sekarang)
                 )
