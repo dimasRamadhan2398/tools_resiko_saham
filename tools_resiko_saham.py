@@ -125,7 +125,7 @@ else:
             persen_kerugian = (nilai_kerugian / start_price) * 100
             if ticker1.endswith('.JK'):
                 if harga_kerugian < 0 :
-                    st.subheader(":red[Resiko kerugian] yang bisa Anda alami adalah modal investasi Anda hilang karena harga saham menyentuh :red[dibawah 0]")
+                    st.subheader(":blue[Resiko kerugian] yang bisa Anda alami adalah modal investasi Anda hilang karena harga saham menyentuh :red[dibawah 0]")
                 else:
                     st.write(
                         "Jika Anda membeli saham :blue[%s]" %(ticker1), "di harga sekarang yaitu :blue[Rp%.0f]." %(start_price), "Maka kemungkinan :red[resiko kerugian tertinggi] yang bisa Anda alami dalam",
