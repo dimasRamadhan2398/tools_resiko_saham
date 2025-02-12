@@ -119,9 +119,9 @@ else:
         kurs = yf.Ticker("USDIDR=X").history(period="1y")
         kurs_sekarang = kurs['Close'][-1]
 
-        def kerugian(persen):
-            nilai_kerugian = (start_price - q) * persen
-            harga_kerugian = nilai_kerugian - start_price
+        def kerugian(multiple):
+            nilai_kerugian = (start_price - q) * multiple
+            harga_kerugian = start_price - nilai_kerugian
             persen_kerugian = (nilai_kerugian / start_price) * 100
             if ticker1.endswith('.JK'):
                 st.write(
@@ -142,8 +142,8 @@ else:
                 col1.metric("Predicted Highest Loss Value", "-Rp%.0f"%(nilai_kerugian*kurs_sekarang), "-%.2f%%"%(persen_kerugian))
                 col2.metric("Predicted Highest Loss Price", "%.0f"%(harga_kerugian), "-%.2f%%"%(persen_kerugian))
 
-        def keuntungan(persen):
-            nilai_keuntungan = (max_price - start_price) * persen
+        def keuntungan(multiple):
+            nilai_keuntungan = (max_price - start_price) * multiple
             harga_keuntungan = start_price + nilai_keuntungan
             persen_keuntungan = (nilai_keuntungan / start_price) * 100
             if ticker1.endswith('.JK'):
